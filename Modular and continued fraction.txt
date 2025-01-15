@@ -1,0 +1,25 @@
+def modules():
+    dividend = int(input("Enter dividend: "))
+    divisor = int(input("Enter divisor: "))
+    m = dividend % divisor
+    print("The modular (remainder) is", m)
+
+modules()
+
+def continued_fraction_recursive(dd, dv):
+    if dv == 0:
+        return []
+
+    integer_part = dd // dv
+    remainder = dd % dv
+    if remainder == 0:
+        return [integer_part]
+
+    return [integer_part] + continued_fraction_recursive(dv, remainder)
+
+
+a = int(input("Enter dividend: "))
+b = int(input("Enter divisor: "))
+
+
+print(continued_fraction_recursive(a, b))
